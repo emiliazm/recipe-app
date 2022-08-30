@@ -1,11 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div>
+  <h1>Shopping List</h1>
 
-<h1>Shopping List</h1>
+  <p>
+    <strong>Amount of food / Items to buy: </strong>
+    <%= @food_number %>
+  </p>
 
-<p>
-  <strong>Amount of food / Items to buy: </strong>
-</p>
+  <p>
+    <strong>Total value of food: </strong>
+  </p>
 
-<p>
-  <strong>Total value of food: </strong>
-</p>
+  <div id="foods">
+    <% @foods.each do |food| %>
+      <%= render food %>
+    <% end %>
+  </div>
+</div>

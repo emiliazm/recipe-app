@@ -37,6 +37,8 @@ class FoodsController < ApplicationController
   end
 
   def shopping_list
+    @foods = current_user.foods.order(:id)
+    @food_number = @foods.length
   end
 
   private
