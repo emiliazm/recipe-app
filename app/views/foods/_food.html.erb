@@ -4,27 +4,32 @@
     <%= food.name %>
   </p>
 
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-
-  <p>
-    <strong>Quantity:</strong>
-    <%= food.quantity %>
-  </p>
-
   <% if current_page?(user_foods_path(food.user_id)) %>
     <p>
-      <strong>User:</strong>
-      <%= @user.name %>
+      <strong>Measurement unit:</strong>
+      <%= food.measurement_unit %>
     </p>
-    <%= button_to "Delete Food", user_food_path(food.user_id, food), method: :delete %>
+
+    <p>
+      <strong>Unit Price:</strong>
+      <%= food.price %>
+    </p>
+
+    <p>
+      <strong>Actions </strong>
+      <%= button_to "Delete", user_food_path(food.user_id, food), method: :delete %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Quantity:</strong>
+      <%= food.quantity %>
+      <%= food.measurement_unit %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= food.price * food.quantity %>
+    </p>
   <% end %>
 
 </div>
