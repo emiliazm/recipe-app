@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
 
   get 'public_recipes' => 'recipes#public_recipes'
+  get 'shopping_list' => 'foods#shopping_list'
 end
