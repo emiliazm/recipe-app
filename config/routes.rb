@@ -3,11 +3,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  root "users#index"
+
   resources :users do
     resources :recipe_foods, only: [:index, :new, :create, :destroy]
     resources :foods, only: [:index, :new, :create, :destroy]
     resources :recipes
   end
-  
-  # root "recipes#index"
 end
