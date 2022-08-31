@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Public Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <p>
+    <strong>Name:</strong>
+    <%= recipe.name %>
+  </p>
+
+  <p>By: <%= recipe.user.name %></p>
+  <p>Total food Items: <%= recipe.recipe_foods.length %></p>
+
+  <p>Total price: <%= @foods.sum{ |food| food.price * food.recipe_foods(:quantity) } %>
+  </p>
+<% end %>
