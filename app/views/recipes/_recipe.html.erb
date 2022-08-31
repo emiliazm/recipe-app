@@ -1,6 +1,6 @@
 <div id="<%= dom_id recipe %>">
   <div>
-  <% indexPage = current_page?(user_recipes_path(current_user.id)) %>
+    <% indexPage = current_page?(user_recipes_path(current_user.id)) %>
     <p>
       <strong>Name:</strong>
       <%= recipe.name %>
