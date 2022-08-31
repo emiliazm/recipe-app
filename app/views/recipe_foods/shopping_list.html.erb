@@ -1,0 +1,36 @@
+<div>
+  <h1>Shopping List</h1>
+
+  <p>
+    <strong>Amount of food / items to buy: </strong>
+    <%= @food_number %>
+  </p>
+
+  <p>
+    <strong>Total value of food: </strong>
+    <%= @foods.sum{ |food| food.price * food.quantity } %>
+  </p>
+
+  <div>
+    <div>
+      <p>Food</p>
+      <p>Quantity</p>
+      <p>Price </p>
+    </div>
+    <div>
+      <% if @foods.length === 0 %>
+        <p>No food</p>
+      <% else %>
+        <% @foods.each do |food| %>
+          <li>
+            <%= food.name %>
+            <%= food.quantity %>
+            <%= food.price * food.quantity%>
+          </li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
