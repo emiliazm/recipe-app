@@ -1,5 +1,4 @@
 class ShoppingListsController < ApplicationController
-
   def index
     # @recipe_foods = RecipeFood.all
     # @all_foods = current_user.foods.where(id: @recipe_foods).order(:id)
