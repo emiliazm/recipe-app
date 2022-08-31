@@ -19,7 +19,7 @@
   </div>
   <div>
     <% if @recipe.recipe_foods.length === 0 %>
-      <p>There are not any ingredient</p>
+      <p>The list of ingredients is empty</p>
     <% else %>
       <% @recipe.recipe_foods.includes([:food]).each do |item| %>
         <li>
