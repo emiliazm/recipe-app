@@ -13,10 +13,18 @@
   <body>
     <div class="session">
       <%if user_signed_in?%>
-        <%= button_to "Sign out",
-        destroy_user_session_path,
-        method: :delete,
-        data:{turbo:false} %>
+        <ul>
+          <li><%= link_to 'Public recipes', root_path %></li>
+          <li><%= link_to 'My recipes', user_recipes_path(current_user.id) %></li>
+          <li><%= link_to 'Foods', user_foods_path(current_user.id) %></li>
+          <%# <li><%= link_to 'Shopping list', user_shopping_lists_path(current_user.id) %></li> %>
+
+          <li><%= button_to "Sign out",
+          destroy_user_session_path,
+          method: :delete,
+          data:{turbo:false} %>
+          </li>
+        </ul>
       <%end%>
     </div>
     <%= yield %>
