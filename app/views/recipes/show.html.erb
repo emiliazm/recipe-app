@@ -5,8 +5,36 @@
 <div>
   <%= link_to "Back to recipes", user_recipes_path %>
 
-  <%= button_to "Destroy this recipe", 
-  user_recipe_path(current_user.id, @recipe.id), 
-  method: :delete,
-  form: { data: { turbo_confirm: 'Are you sure you want to delete this recipe?' }} %>
+  <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(current_user.id, @recipe.id) %>
+</div>
+
+<div>
+  <div>
+    <p>Food</p>
+    <p>Quantity</p>
+    <p>Value</p>
+    <% if current_user.id == @recipe.user_id %>
+      <p>Actions</p>
+    <% end %>
+  </div>
+  <div>
+    <% if @recipe.recipe_foods.length === 0 %>
+      <p>The list of ingredients is empty</p>
+    <% else %>
+      <% @recipe.recipe_foods.includes([:food]).each do |item| %>
+        <li>
+          <%= item.food.name %>
+          <%= item.quantity %> <%= item.food.measurement_unit %>
+          <%= item.food.price * item.quantity%>
+          <% if current_user.id == @recipe.user_id %>
+            <%= button_to "Delete",
+            user_recipe_recipe_food_path(current_user.id, @recipe.id, @recipe_food.id),
+            method: :delete,
+            form: { data: { turbo_confirm: 'Are you sure you want to delete this ingredient?' }} 
+            %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </div>
 </div>
