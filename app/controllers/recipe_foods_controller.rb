@@ -56,7 +56,8 @@ class RecipeFoodsController < ApplicationController
   end
 
   def shopping_list
-    @foods = current_user.foods.order(:id)
+    @recipe_foods = RecipeFood.all
+    @foods = current_user.foods.where(id: @recipe_foods).order(:id)
     @food_number = @foods.length
   end
 
