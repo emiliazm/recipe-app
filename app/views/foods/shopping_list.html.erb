@@ -8,6 +8,7 @@
 
   <p>
     <strong>Total value of food: </strong>
+    <%= @foods.sum{ |food| food.price * food.quantity } %>
   </p>
 
   <div id="foods">
