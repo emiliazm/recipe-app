@@ -18,10 +18,11 @@
 
   <div>
     <%= form.label :food_id, style: "display: block" %>
-    <%= form.text_field :food_id %>
+    <%= form.collection_select(:food_id, @foods, :id, :name) %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
+
 <% end %>
