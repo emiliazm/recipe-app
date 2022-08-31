@@ -17,7 +17,7 @@
           <li><%= link_to 'Public recipes', root_path %></li>
           <li><%= link_to 'My recipes', user_recipes_path(current_user.id) %></li>
           <li><%= link_to 'Foods', user_foods_path(current_user.id) %></li>
-          <%# <li><%= link_to 'Shopping list', user_shopping_lists_path(current_user.id) %></li> %>
+          <li><%= link_to 'Shopping list', user_shopping_lists_path(current_user.id) %></li>
 
           <li><%= button_to "Sign out",
           destroy_user_session_path,
