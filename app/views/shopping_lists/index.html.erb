@@ -3,7 +3,7 @@
 
   <p>
     <strong>Amount of food / items to buy: </strong>
-    <%= @food_number %>
+    <%= @foods.length %>
   </p>
 
   <p>
@@ -24,8 +24,8 @@
         <% @foods.each do |food| %>
           <li>
             <%= food.name %>
-            <%= food.quantity %>
-            <%= food.price * food.quantity %>
+            <%= food.recipe_foods.sum(:quantity) %>
+            <%= food.price * food.recipe_foods.sum(:quantity) %>
           </li>
         <% end %>
       <% end %>
