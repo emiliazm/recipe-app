@@ -146,20 +146,14 @@ h1 {
 }
 
 .shopping-table {
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(187, 187, 187);
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  border: 1px solid black;
+  padding: 3px;
 }
 
-.shopping-items {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  list-style-type: none;
-  font-size: 18px;
-  padding: 8px;
+.grey {
+  background-color: rgb(194, 194, 194);
 }
 
 #foods {

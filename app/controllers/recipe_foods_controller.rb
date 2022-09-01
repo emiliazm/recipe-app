@@ -20,7 +20,9 @@ class RecipeFoodsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @recipe_food }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html do
+          redirect_to request.referer
+        end
         format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
       end
     end

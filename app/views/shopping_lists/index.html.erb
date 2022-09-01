@@ -12,8 +12,8 @@
   </div>
 
 
-  <div class="shopping-table">
-    <div class="shopping-items">
+  <div class="recipe-foods-table">
+    <div class="shopping-table grey">
       <p>Food</p>
       <p>Quantity</p>
       <p>Price</p>
@@ -22,7 +22,7 @@
       <p>No food</p>
     <% else %>
       <% @foods.each do |food| %>
-        <div class="shopping-items">
+        <div class="shopping-table">
           <p><%= food.name %></p>
           <p><%= food.recipe_foods.sum(:quantity) %></p>
           <p><%= food.price * food.recipe_foods.sum(:quantity) %></p>
