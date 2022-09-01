@@ -4,7 +4,7 @@ module PublicRecipesHelper
     count = 0
     recipe.recipe_foods.includes([:food]).each do |ingredient|
       food = ingredient.food
-      total += food.quantity * food.price
+      total += ingredient.quantity * food.price
       count += 1
     end
     [count, total]
