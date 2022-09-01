@@ -8,6 +8,6 @@ RSpec.describe User, type: :model do
     expect(subject.id).not_to be_nil
     expect(subject.name).to eq('Axel')
     expect(subject.email).to eq('axel@gmail2.com')
-    expect(subject.password).to eq("123456")
+    expect(subject.password).to eq('123456')
   end
 end
