@@ -1,35 +1,34 @@
-<div>
+<div class="shopping">
   <h1>Shopping List</h1>
 
-  <p>
-    <strong>Amount of food / items to buy: </strong>
-    <%= @foods.length %>
-  </p>
+  <div class="shopping-values">
+    <p>
+      <h3>Amount of food / items to buy: <%= @foods.length %></h3>
+    </p>
 
-  <p>
-    <strong>Total value of food: </strong>
-    <%= @foods.sum{ |food| food.price * food.recipe_foods.sum(:quantity) } %>
-  </p>
+    <p>
+      <h3>Total value of food: <%= @foods.sum{ |food| food.price * food.recipe_foods.sum(:quantity) } %></h3>
+    </p>
+  </div>
 
-  <div>
-    <div>
+
+  <div class="shopping-table">
+    <div class="shopping-items">
       <p>Food</p>
       <p>Quantity</p>
-      <p>Price </p>
+      <p>Price</p>
     </div>
-    <div>
-      <% if @foods.length === 0 %>
-        <p>No food</p>
-      <% else %>
-        <% @foods.each do |food| %>
-          <li>
-            <%= food.name %>
-            <%= food.recipe_foods.sum(:quantity) %>
-            <%= food.price * food.recipe_foods.sum(:quantity) %>
-          </li>
-        <% end %>
+    <% if @foods.length === 0 %>
+      <p>No food</p>
+    <% else %>
+      <% @foods.each do |food| %>
+        <div class="shopping-items">
+          <p><%= food.name %></p>
+          <p><%= food.recipe_foods.sum(:quantity) %></p>
+          <p><%= food.price * food.recipe_foods.sum(:quantity) %></p>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
