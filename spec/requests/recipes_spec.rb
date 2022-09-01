@@ -43,7 +43,7 @@ RSpec.describe 'Users index page', type: :request do
     end
 
     it 'should display correct placeholder' do
-      expect(response.body).to include('Name')
+      expect(response.body).to include('description')
     end
   end
 end
