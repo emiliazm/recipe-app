@@ -9,10 +9,12 @@
     </p>
 
     <% if indexPage %>
-      <%= button_to "REMOVE", 
-      user_recipe_path(current_user.id, recipe.id), 
-      method: :delete,
-      form: { data: { turbo_confirm: 'Are you sure you want to delete this recipe?' }} %>
+      <% if can? :destroy, recipe %>
+        <%= button_to "REMOVE", 
+        user_recipe_path(current_user.id, recipe.id), 
+        method: :delete,
+        form: { data: { turbo_confirm: 'Are you sure you want to delete this recipe?' }} %>
+      <% end %>
     
     <% elsif showPage %>
       <div>

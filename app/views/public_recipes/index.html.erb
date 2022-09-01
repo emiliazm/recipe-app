@@ -2,15 +2,22 @@
 
 <h1>Public Recipes</h1>
 
-<% @recipes.each do |recipe| %>
+<% @recipes.includes([:user]).each do |recipe| %>
   <p>
     <strong>Name:</strong>
     <%= recipe.name %>
   </p>
 
   <p>By: <%= recipe.user.name %></p>
-  <p>Total food Items: <%= recipe.recipe_foods.length %></p>
+  
+  <% count, total = recipe_price(recipe) %>
+  
+  <p>Total food Items: <%= count %></p>
 
-  <p>Total price: <%= @foods.sum{ |food| food.price * food.recipe_foods(:quantity) } %>
+  <p>Total price: <%= total %></p>
+
+  <p>
+    <%= link_to "Show this recipe", user_recipe_path(current_user.id, recipe.id) %>
   </p>
+
 <% end %>

@@ -5,10 +5,8 @@ class RecipeFoodsController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
     @foods = Food.where(user_id: current_user.id)
+    @recipe = Recipe.find_by(id: params[:recipe_id])
   end
-
-  # GET /recipe_foods/1/edit
-  def edit; end
 
   # POST /recipe_foods or /recipe_foods.json
   def create

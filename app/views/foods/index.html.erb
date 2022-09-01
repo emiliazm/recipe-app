@@ -5,7 +5,7 @@
 <%= link_to "New food", new_user_food_path %>
 
 <div id="foods">
-  <% @foods.each do |food| %>
+  <% @foods.includes([:user]).each do |food| %>
     <%= render food %>
   <% end %>
 </div>
