@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users index page', type: :request do
+RSpec.describe 'Users new page', type: :request do
   before(:example) do
     @user = User.create(name: 'Tom', email: 'tom@mail.com')
     sign_in(@user)
@@ -18,7 +18,7 @@ RSpec.describe 'Users index page', type: :request do
     @user.destroy
   end
 
-  context 'When testing GET #index' do
+  context 'When testing GET #new' do
     before(:example) { get new_user_recipe_recipe_food_path(@user.id, @recipe.id) }
 
     it 'is a success' do
