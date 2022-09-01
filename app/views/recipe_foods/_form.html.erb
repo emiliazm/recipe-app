@@ -11,18 +11,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
+  <% unless @foods.empty? %>
+    <div>
+      <%= form.label :quantity, style: "display: block" %>
+      <%= form.number_field :quantity %>
+    </div>
 
-  <div>
-    <%= form.label :food_id, style: "display: block" %>
-    <%= form.collection_select(:food_id, @foods, :id, :name) %>
-  </div>
+    <div>
+      <%= form.label :food_id, style: "display: block" %>
+      <%= form.collection_select(:food_id, @foods, :id, :name) %>
+    </div>
 
-  <div>
     <%= form.submit %>
-  </div>
+      
+  <% else %>
+    <p>To add a new food, go to foods page to create one</p>
+  <% end %>
 
 <% end %>
