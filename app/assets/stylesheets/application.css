@@ -133,11 +133,11 @@ h1 {
 }
 
 .shopping {
-  width:70vh;
+  width: 70vh;
   text-align: center;
 }
 
-.shopping-values{
+.shopping-values {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -170,7 +170,7 @@ h1 {
 }
 
 .food-item {
-  width:70vh;
+  width: 70vh;
   text-align: center;
   border: 2px solid black;
   margin-top: 24px;
