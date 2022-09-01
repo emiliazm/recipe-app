@@ -14,7 +14,7 @@
     <%= food.price %>
   </p>
 
-  <% if current_user.id == food.user_id %>
+  <% if can? :destroy, food %>
     <p>
       <strong>Actions </strong>
       <%= button_to "Delete", user_food_path(food.user_id, food), method: :delete %>

@@ -16,4 +16,8 @@
 
   <p>Total price: <%= total %></p>
 
+  <p>
+    <%= link_to "Show this recipe", user_recipe_path(current_user.id, recipe.id) %>
+  </p>
+
 <% end %>
