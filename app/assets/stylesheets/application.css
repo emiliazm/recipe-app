@@ -13,3 +13,121 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-top: 10vh;
+  padding: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-bar {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  padding: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(19, 31, 137);
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.new-recipe-link {
+  margin-bottom: 30px;
+}
+
+#recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe-conatiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  border: 2px solid black;
+  width: 80vw;
+  padding: 5px;
+}
+
+.recipe-h2 {
+  margin-bottom: 20px;
+}
+
+.recipe-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-show-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.links-recipe-show {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-foods-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-head {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  border: 1px solid black;
+  padding: 3px;
+  background-color: rgb(194, 194, 194);
+}
+
+.table-body {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  row-gap: 10px;
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.public-recipe-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.public-recipe {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  width: 80vw;
+  padding: 5px;
+}
+
+.public-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

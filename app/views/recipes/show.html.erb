@@ -1,34 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
 
-<div>
-  <%= link_to "Back to recipes", user_recipes_path %>
+<div class= "recipe-show-page">
+  <%= render @recipe %>
 
-  <% if current_user.id == @recipe.user_id %>
-    <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(current_user.id, @recipe.id) %>
-  <% end %>
-  
-</div>
+  <div class="links-recipe-show">
+    <%= link_to "Back to recipes", user_recipes_path %>
 
-<div>
-  <div>
-    <p>Food</p>
-    <p>Quantity</p>
-    <p>Value</p>
     <% if current_user.id == @recipe.user_id %>
-      <p>Actions</p>
+      <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(current_user.id, @recipe.id) %>
     <% end %>
+    
   </div>
-  <div>
+
+  <div class="recipe-foods-table">
+
     <% if @recipe.recipe_foods.length === 0 %>
       <p>The list of ingredients is empty</p>
     <% else %>
-      <% @recipe.recipe_foods.includes([:food]).each do |item| %>
-        <li>
-          <%= item.food.name %>
-          <%= item.quantity %> <%= item.food.measurement_unit %>
-          <%= item.food.price * item.quantity%>
+
+      <div class="table-head">
+        <p>Food</p>
+        <p>Quantity</p>
+        <p>Value</p>
+        <% if current_user.id == @recipe.user_id %>
+          <p>Actions</p>
+        <% end %>
+      </div>
+
+      <div class="table-body">
+        <% @recipe.recipe_foods.includes([:food]).each do |item| %>
+          <p><%= item.food.name %></p>
+          <p><%= item.quantity %> <%= item.food.measurement_unit %></p>
+          <p><%= item.food.price * item.quantity%></p>
           <% if current_user.id == @recipe.user_id %>
             <% if can? :destroy, item %>
               <%= button_to "Delete",
@@ -38,8 +42,10 @@
               %>
             <% end %>
           <% end %>
-        </li>
-      <% end %>
+        <% end %>
+      </div>
+
     <% end %>
+
   </div>
 </div>

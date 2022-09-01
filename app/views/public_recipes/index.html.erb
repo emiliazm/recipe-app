@@ -2,22 +2,28 @@
 
 <h1>Public Recipes</h1>
 
-<% @recipes.includes([:user]).each do |recipe| %>
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<div class="public-recipe-ul">
+  <% @recipes.includes([:user]).each do |recipe| %>
+    <div class="public-recipe">
+    
+      <div class="public-name">
+        <h3><%= recipe.name %></h3>
+        <p>By: <%= recipe.user.name %></p>
+      </div>
 
-  <p>By: <%= recipe.user.name %></p>
-  
-  <% count, total = recipe_price(recipe) %>
-  
-  <p>Total food Items: <%= count %></p>
+      <div class="public-counter">
+        <% count, total = recipe_price(recipe) %>
+        
+        <p>Total food Items: <%= count %></p>
 
-  <p>Total price: <%= total %></p>
+        <p>Total price: <%= total %></p>
 
-  <p>
-    <%= link_to "Show this recipe", user_recipe_path(current_user.id, recipe.id) %>
-  </p>
+        <p>
+          <%= link_to "Show this recipe", user_recipe_path(current_user.id, recipe.id) %>
+        </p>
+      </div>
 
-<% end %>
+    </div>
+  <% end %>
+</div>
+
