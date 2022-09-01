@@ -105,7 +105,7 @@ second_recipe_food = RecipeFood.create(
 third_recipe_food = RecipeFood.create(
         quantity: 10,
         recipe_id: third_recipe.id,
-        food_id: first_food.id)
+        food_id: fourth_food.id)
   
 fourd_recipe_food = RecipeFood.create(
         quantity: 5,
