@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="session">
+      <%if user_signed_in?%>
+        <ul class="nav-bar">
+          <li><%= link_to 'Public recipes', root_path %></li>
+          <li><%= link_to 'My recipes', user_recipes_path(current_user.id) %></li>
+          <li><%= link_to 'Foods', user_foods_path(current_user.id) %></li>
+          <li><%= link_to 'Shopping list', user_shopping_lists_path(current_user.id) %></li>
+
+          <li><%= button_to "Sign out",
+          destroy_user_session_path,
+          method: :delete,
+          data:{turbo:false} %>
+          </li>
+        </ul>
+      <%end%>
+    </div>
+    <%= yield %>
+  </body>
+</html>

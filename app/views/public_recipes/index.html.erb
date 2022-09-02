@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Public Recipes</h1>
+
+<div class="public-recipe-ul">
+  <% @recipes.includes([:user]).each do |recipe| %>
+    <div class="public-recipe">
+    
+      <div class="public-name">
+        <h3><%= recipe.name %></h3>
+        <p>By: <%= recipe.user.name %></p>
+      </div>
+
+      <div class="public-counter">
+        <% count, total = recipe_price(recipe) %>
+        
+        <p>Total food Items: <%= count %></p>
+
+        <p>Total price: <%= total %></p>
+
+        <p>
+          <%= link_to "Show this recipe", user_recipe_path(current_user.id, recipe.id) %>
+        </p>
+      </div>
+
+    </div>
+  <% end %>
+</div>
+
